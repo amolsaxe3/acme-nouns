@@ -39,29 +39,29 @@ const syncAndSeed = async () => {
     await db.sync({
       force: true,
     });
-    const [fullstack, trainStation] = await Promise.all([
-      Places.create({ name: 'Fullstack' }),
-      Places.create({ name: 'trainstation' }),
+    const [home, office] = await Promise.all([
+      Places.create({ name: 'Home' }),
+      Places.create({ name: 'Office' }),
     ]);
-    const [laptop, phone] = await Promise.all([
-      Things.create({ name: 'laptop' }),
-      Things.create({ name: 'phone' }),
+    const [desk, paper] = await Promise.all([
+      Things.create({ name: 'desk' }),
+      Things.create({ name: 'paper' }),
     ]);
-    const [moe, larry, curly] = await Promise.all([
+    const [amol, surabhi, agastya] = await Promise.all([
       Persons.create({
-        name: 'Moe',
-        placeId: fullstack.id,
-        thingId: laptop.id,
+        name: 'amol',
+        placeId: office.id,
+        thingId: paper.id,
       }),
       Persons.create({
-        name: 'Larry',
-        placeId: fullstack.id,
-        thingId: phone.id,
+        name: 'surabhi',
+        placeId: office.id,
+        thingId: desk.id,
       }),
       Persons.create({
-        name: 'Curly',
-        placeId: trainStation.id,
-        thingId: laptop.id,
+        name: 'agastya',
+        placeId: home.id,
+        thingId: desk.id,
       }),
     ]);
   } catch (err) {
