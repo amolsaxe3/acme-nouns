@@ -6,9 +6,11 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 const chalk = require('chalk');
 
+app.use('static',express.static(path.join(__dirname,'static')))
 app.get('/', (req, res, next) => {
   try {
-    res.sendFile(path.join(__dirname, 'index.html'));
+  //  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
   } catch (err) {
     console.log(err.message);
   }

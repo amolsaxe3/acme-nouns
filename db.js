@@ -29,7 +29,7 @@ const Things = db.define('things', {
 });
 
 Persons.belongsTo(Places);
-Places.hasMany(Persons);
+Places.hasMany(Persons);// instead of 1 to many if we need 1:1 relation it has to be .hasOne();
 
 Persons.belongsTo(Things);
 Things.hasMany(Persons);
